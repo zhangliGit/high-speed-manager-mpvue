@@ -1,0 +1,21 @@
+
+body {
+  font-size: 28rpx;
+  background-color: #f5f5f5
+}
+
+.bg-fff {
+  background-color: #fff;
+}
+.bg-f5f {
+  background-color: #f5f5f5;
+}
+.col-0 {
+  color: #fff;
+}
+.col-1 {
+  color: rgb(131, 131, 131);
+}
+.col-2 {
+  color: #333
+}

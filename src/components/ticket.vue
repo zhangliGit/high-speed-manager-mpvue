@@ -121,13 +121,9 @@ export default {
   computed: {
   },
   methods: {
-    goDetail () {
-      this.$router.push({name: 'detail'});
-    },
     searchList () {
-      this.$dialog.alert({
-        message: '弹窗内容'
-      })
+      const url = "../ticket/main?id=2";
+      wx.navigateTo({url});
     }
   },
   

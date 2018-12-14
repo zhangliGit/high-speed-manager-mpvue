@@ -1,44 +1,50 @@
 <template>
   <div class="co-Page co-flex co-ver" style="overflow: hidden">
+    <van-tabs :active="active" @change="onChange">
+      <van-tab title="火车票">
+      </van-tab>
+      <van-tab title="飞机票">
+      </van-tab>
+    </van-tabs>
     <scroll-view
     scroll-y
+    bindscrolltoupper="topR"
     class="co-f1 co-flex"
     style="height: 100rpx"
     >
-      <Service></Service>
+     <ticket-list :ticket-list="ticketList"></ticket-list>
     </scroll-view>
-    <!-- <div id="footer" style="height: 100rpx; color: rgb(131, 131, 131); border-top: 1rpx solid #f5f5f5" class="co-flex co-ac bg-fff">
-      <div @click="changePage(index)" class="co-flex co-f1 co-ver co-ac co-jc" v-for="(item, index) in footer" :key="index">
-        <div style="width: 44rpx; height: 44rpx;">
-          <i :class="'icon iconfont ' + item.icon " style="font-size: 40rpx"></i>
-        </div>
-        <div style="margin-top: 4rpx; font-size: 24rpx">{{item.title}}</div>
-      </div>
-    </div> -->
   </div>
 </template>
 
 <script>
-import Service from '@/components/Service.vue'
+import TicketList from '../../components/ticketList.vue'
 import { mapState, mapMutations } from 'vuex'
 export default {
   components: {
-    Service,
+    TicketList
   },
   data () {
     return {
+      active: 0
     }
   },
   computed: {
+    ...mapState([
+      'ticketList'
+    ])
   },
   methods: {
+    onChange (event) {
+      console.log(event.mp.detail.index)
+    },
     ...mapMutations({
       getTicketList: 'getTicketList'
     }),
   },
   created () {
   },
-  mounted() {
+  mounted () {
     this.getTicketList();
   },
 }

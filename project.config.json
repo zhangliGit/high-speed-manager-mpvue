@@ -11,7 +11,7 @@
 	"miniprogramRoot": "dist/wx/",
 	"compileType": "miniprogram",
 	"appid": "wx3f2f67ca4c32a213",
-	"projectname": "mp-app",
+	"projectname": "high-speed-manger-mpvue",
 	"condition": {
 		"search": {
 			"current": -1,

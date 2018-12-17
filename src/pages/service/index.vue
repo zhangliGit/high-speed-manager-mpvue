@@ -20,7 +20,6 @@
 
 <script>
 import Service from '@/components/Service.vue'
-import { mapState, mapMutations } from 'vuex'
 export default {
   components: {
     Service,
@@ -32,14 +31,10 @@ export default {
   computed: {
   },
   methods: {
-    ...mapMutations({
-      getTicketList: 'getTicketList'
-    }),
   },
   created () {
   },
   mounted() {
-    this.getTicketList();
   },
 }
 </script>

@@ -38,9 +38,12 @@ export default {
   computed: {
   },
   methods: {
+    goDetail (id) {
+      const url = `../detail/main?id=${id}`
+      wx.navigateTo({ url })
+    }
   },
   mounted() {
-    console.log(this.ticketList)
   },
 }
 </script>

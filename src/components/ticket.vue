@@ -122,7 +122,7 @@ export default {
   },
   methods: {
     searchList () {
-      const url = "../ticket/main?id=2";
+      const url = "../ticket/main?id=2&name=zhangli";
       wx.navigateTo({url});
     }
   },

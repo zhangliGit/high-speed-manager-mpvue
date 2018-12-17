@@ -5,7 +5,9 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   // 用来存储数据
   state: {
-    ticketList: []
+    ticketList: [],
+    ticketDetail: {},
+    tripNewList: []
   },
   // 用来对数据做处理, 类似vue实例中的computed
   getters: {

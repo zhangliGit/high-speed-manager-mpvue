@@ -1,19 +1,16 @@
 <template>
-  <div class="co-Page co-flex co-ver" style="overflow: hidden">
-    <van-tabs :active="active" @change="onChange">
-      <van-tab title="火车票">
-      </van-tab>
-      <van-tab title="飞机票">
-      </van-tab>
-    </van-tabs>
-    <scroll-view
-    scroll-y
-    bindscrolltoupper="topR"
-    class="co-f1 co-flex"
-    style="height: 100rpx"
-    >
-     <ticket-list :ticket-list="ticketList"></ticket-list>
-    </scroll-view>
+  <div class="co-Page co-flex co-ver">
+    <div style="position: fixed; height: 88rpx; z-index:99; top: 0; left:0; width: 100%">
+      <van-tabs :active="active" @change="onChange">
+        <van-tab title="火车票">
+        </van-tab>
+        <van-tab title="飞机票">
+        </van-tab>
+      </van-tabs>
+    </div>
+    <div class="co-f1" style="padding-top: 88rpx">
+      <ticket-list :ticket-list="ticketList"></ticket-list>
+    </div>
   </div>
 </template>
 
@@ -26,7 +23,9 @@ export default {
   },
   data () {
     return {
-      active: 0
+      scrollTop: 60,
+      active: 0,
+      scrollh: 600
     }
   },
   computed: {
@@ -34,19 +33,24 @@ export default {
       'ticketList'
     ])
   },
+  onPullDownRefresh ()  {
+    this.getTicketList(0)
+  },
+  onReachBottom () {
+    this.getTicketList(1)
+  },
   methods: {
     onChange (event) {
-      console.log(event.mp.detail.index)
     },
-    ...mapMutations({
-      getTicketList: 'getTicketList'
-    }),
+    ...mapMutations([
+      'getTicketList'
+    ]),
   },
   created () {
   },
   mounted () {
-    this.getTicketList();
-  },
+    this.getTicketList(0)
+  }
 }
 </script>
 

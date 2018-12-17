@@ -89,9 +89,6 @@ export default {
   computed: {
   },
   methods: {
-    goDetail () {
-      this.$router.push({name: 'detail'})
-    }
   },
   
 }

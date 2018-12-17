@@ -4,7 +4,8 @@
     "pages/trip/main",
     "pages/service/main",
     "pages/person/main",
-    "pages/ticket/main"
+    "pages/ticket/main",
+    "pages/detail/main"
   ],
   "tabBar": {
     "color": "#333",

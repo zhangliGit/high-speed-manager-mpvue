@@ -1,21 +1,15 @@
 <template>
   <div class="co-Page co-flex co-ver" style="overflow: hidden">
-    <scroll-view
-    scroll-y
-    class="co-f1 co-flex"
-    style="height: 100rpx"
-    >
-      <Trip></Trip>
-    </scroll-view>
+    <my-trip :trip-list = "tripNewList"  @getTripList = "getTripList"></my-trip>
   </div>
 </template>
 
 <script>
-import Trip from '@/components/myTrip.vue'
+import MyTrip from '../../components/myTrip.vue'
 import { mapState, mapMutations } from 'vuex'
 export default {
   components: {
-    Trip
+    MyTrip
   },
   data () {
     return {
@@ -23,19 +17,19 @@ export default {
   },
   computed: {
     ...mapState([
-      'name'
+      'tripNewList'
     ])
   },
   methods: {
-    changePage (index) {
-      this.currentIndex = index
-    },
-    ...mapMutations({
-      SET_NAME: 'SET_NAME'
-    }),
+    ...mapMutations([
+      'getTripList'
+    ]),
   },
   created () {
-  }
+  },
+  mounted() {
+    this.getTripList(0)
+  },
 }
 </script>
 
